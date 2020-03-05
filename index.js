@@ -13,18 +13,32 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   )
   .catch(err => console.error("Error connecting to mongo", err));
+console.log(data);
 
-//  Iteration 2
+//  Iteration 2 creating a new recipe and checking it on MongoDB
 
-Recipe.create({
-  title: "Pizza",
-  level: "Easy Peasy",
-  ingredients: ["Tomato sauce", "Prosciuto", "Cheese", "Mushrooms"],
-  cuisine: "Italian",
-  dishType: "Other",
-  duration: 20,
-  creator: "Igor"
-})
+// Recipe.create({
+//   title: "Pizza",
+//   level: "Easy Peasy",
+//   ingredients: ["Tomato sauce", "Prosciuto", "Cheese", "Mushrooms"],
+//   cuisine: "Italian",
+//   dishType: "Other",
+//   duration: 20,
+//   creator: "Igor"
+// })
 
+//  Iteration 3 importing an array of recipes from the data.js
+Recipe.insertMany(data)
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+
+//  Iteration 4 updating property in an object "Rigatoni alla Genovese"
+
+Recipe.updateOne({ title: "Rigatoni alla Genovese" }, { duration: 100 })
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+
+//  Iteration 5 removing 'Carrot case' object from the database
+Recipe.deleteOne({ title: "Carrot Cake" })
   .then(res => console.log(res))
   .catch(err => console.log(err));
