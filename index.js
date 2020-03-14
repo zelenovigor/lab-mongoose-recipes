@@ -17,15 +17,15 @@ console.log(data);
 
 //  Iteration 2 creating a new recipe and checking it on MongoDB
 
-// Recipe.create({
-//   title: "Pizza",
-//   level: "Easy Peasy",
-//   ingredients: ["Tomato sauce", "Prosciuto", "Cheese", "Mushrooms"],
-//   cuisine: "Italian",
-//   dishType: "Other",
-//   duration: 20,
-//   creator: "Igor"
-// })
+Recipe.create({
+  title: "Pizza",
+  level: "Easy Peasy",
+  ingredients: ["Tomato sauce", "Prosciuto", "Cheese", "Mushrooms"],
+  cuisine: "Italian",
+  dishType: "Other",
+  duration: 20,
+  creator: "Igor"
+});
 
 //  Iteration 3 importing an array of recipes from the data.js
 Recipe.insertMany(data)
